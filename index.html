@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Aro Hotel</title>
+</head>
+<body style="font-family: 'Work Sans', sans-serif;" x-data="{isOpen:false}">
+    <!-- side bar -->
+    <div id="sidebar" class="h-screen overflow-hidden bg-white z-10 fixed top-0 right-0 transition-all duration-300" :class="isOpen? 'lg:w-1/3 sm:w-64 ' : 'w-0'">
+        <div class="w-full h-auto p-8 flex justify-end">
+            <button @click.prevent="isOpen = !isOpen"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                <g id="close" transform="translate(0.006 0.003)">
+                  <path id="Path_11027" data-name="Path 11027" d="M1.215,25a1.221,1.221,0,0,1-.863-2.084L22.91.354a1.221,1.221,0,0,1,1.727,1.727L2.078,24.639A1.217,1.217,0,0,1,1.215,25Z" transform="translate(0 0)" fill="#12686e"/>
+                  <path id="Path_11028" data-name="Path 11028" d="M23.776,25a1.217,1.217,0,0,1-.863-.357L.354,2.081A1.221,1.221,0,1,1,2.081.354L24.639,22.913A1.221,1.221,0,0,1,23.776,25Z" transform="translate(-0.002 0)" fill="#12686e"/>
+                </g>
+              </svg>
+            </button>
+        </div>
+        <div class="w-full h-full flex flex-col items-center justify-center">
+            <div class="h-12 w-64 flex items-center text-[#5B5B5B]  uppercase tracking-widest">home</div>
+            <div class="h-12 w-64 border-t-2 border-[#E9E9E9] flex items-center text-[#5B5B5B]  uppercase tracking-widest">offers</div>
+            <div class="h-12 w-64 border-t-2 border-[#E9E9E9] flex items-center text-[#5B5B5B]  uppercase tracking-widest">rooms</div>
+            <div class="h-12 w-64 border-t-2 border-[#E9E9E9] flex items-center text-[#5B5B5B]  uppercase tracking-widest">gallery</div>
+            <div class="h-12 w-64 border-t-2 border-[#E9E9E9] flex items-center text-[#5B5B5B]  uppercase tracking-widest">location</div>
+            <div class="h-12 w-64 border-t-2 border-[#E9E9E9] flex items-center text-[#5B5B5B]  uppercase tracking-widest">site map</div>
+            <div class="h-12 w-64 mt-4">                            
+                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /side bar -->
+
+    <nav class="h-[100px] flex flex-grow items-center justify-between  p-0 ml-8">
+        <!-- nav-left-side -->
+        <div class="flex flex-grow items-center text-white mr-6 w-32">
+            <svg xmlns="http://www.w3.org/2000/svg" width="256.744" height="67" viewBox="0 0 256.744 67">
+                <g id="logo" transform="translate(-45 -13)">
+                    <path id="Path_11034" data-name="Path 11034" d="M13.76-6.24c1.088,2.528,1.6,3.808,2.336,5.472.288.768.544.96.928.96A8.587,8.587,0,0,0,19.456-.16V-.288C18.88-1.44,18.08-3.424,16.768-6.432c-1.248-2.944-4.064-9.76-5.536-13.12a.721.721,0,0,0-.7-.544,14.047,14.047,0,0,0-2.208.32l.384.9C7.648-16.416,2.336-4.288.512-.352L.48-.192A6.024,6.024,0,0,0,2.4.192c.384,0,.608-.128.7-.384C3.648-1.312,4.64-3.68,5.76-6.24ZM6.5-8.192C7.744-11.2,8.768-13.76,9.824-16.32c.448,1.088,1.568,3.776,3.3,8.128Zm21.792-.256h.864c1.76,0,2.368.544,3.616,2.56,1.184,2.016,1.664,2.912,2.752,4.512C36.384-.192,37.12.256,38.08.256a4.09,4.09,0,0,0,1.856-.288V-.16A29.42,29.42,0,0,1,36.32-5.184a15.588,15.588,0,0,0-3.04-4.032c1.312-.576,4-2.112,4-5.28,0-4.192-2.784-5.664-7.04-5.664a31.475,31.475,0,0,0-4.8.48c.064.992.064,1.76.064,3.328v10.72c0,2.656-.064,4.544-.128,5.824A21.789,21.789,0,0,0,27.712.1c.416-.1.576-.224.576-.8Zm0-9.76a8.309,8.309,0,0,1,1.888-.16c2.112,0,4.16,1.056,4.16,4.1a3.885,3.885,0,0,1-2.592,3.9,13.309,13.309,0,0,1-3.456.192ZM54.336-20.48c-6.368,0-10.24,4.64-10.24,10.72C44.1-5.28,46.912.48,54.336.48c6.784,0,10.176-5.12,10.176-10.656C64.512-15.9,60.544-20.48,54.336-20.48Zm-.224,1.824c4.384,0,7.36,3.712,7.36,8.64,0,5.728-2.88,8.672-6.912,8.672-3.744,0-7.392-3.072-7.392-8.7C47.168-15.552,50.144-18.656,54.112-18.656Z" transform="translate(122 59)"/>
+                  <g id="Group_17" data-name="Group 17" transform="translate(45 13)">
+                      <g id="Group_16" data-name="Group 16" transform="translate(2.312)">
+                          <g id="Polygon_1" data-name="Polygon 1" transform="translate(-0.312 16)" fill="none">
+                              <path d="M17.5,0,35,30H0Z" stroke="none"/>
+                              <path d="M 17.5 1.984636306762695 L 1.741039276123047 29 L 33.25896072387695 29 L 17.5 1.984636306762695 M 17.5 0 L 35 30 L 0 30 L 17.5 0 Z" stroke="none" fill="#12686e"/>
+                            </g>
+                            <g id="Polygon_2" data-name="Polygon 2" transform="translate(13.688)" fill="none">
+                        <path d="M18.5,0,37,32H0Z" stroke="none"/>
+                        <path d="M 18.5 1.997978210449219 L 1.733207702636719 31 L 35.26679229736328 31 L 18.5 1.997978210449219 M 18.5 0 L 37 32 L 0 32 L 18.5 0 Z" stroke="none" fill="#12686e"/>
+                    </g>
+                    <g id="Polygon_3" data-name="Polygon 3" transform="translate(13.688 30)" fill="none">
+                        <path d="M17.5,0,35,32H0Z" stroke="none"/>
+                          <path d="M 17.5 2.084144592285156 L 1.686641693115234 31 L 33.31335830688477 31 L 17.5 2.084144592285156 M 17.5 0 L 35 32 L 0 32 L 17.5 0 Z" stroke="none" fill="#12686e"/>
+                        </g>
+                        <g id="Polygon_4" data-name="Polygon 4" transform="translate(29.688 16)" fill="none">
+                            <path d="M16.5,0,33,30H0Z" stroke="none"/>
+                            <path d="M 16.5 2.075046539306641 L 1.691276550292969 29 L 31.30872344970703 29 L 16.5 2.075046539306641 M 16.5 0 L 33 30 L 0 30 L 16.5 0 Z" stroke="none" fill="#12686e"/>
+                        </g>
+                    </g>
+                    <g id="Ellipse_1" data-name="Ellipse 1" fill="none" stroke="#12686e" stroke-width="1">
+                      <ellipse cx="34.5" cy="33.5" rx="34.5" ry="33.5" stroke="none"/>
+                      <ellipse cx="34.5" cy="33.5" rx="34" ry="33" fill="none"/>
+                    </g>
+                </g>
+                <path id="Path_11035" data-name="Path 11035" d="M-95.84-11.36v-7.072c0-1.472-.1-1.664-.544-1.664a15.722,15.722,0,0,0-2.368.256c.064.608.1,1.92.1,4.064V-5.664c0,2.688-.032,4.576-.1,5.856A12.061,12.061,0,0,0-96.64.064c.64-.1.8-.192.8-.832v-8.64h5.888c2.816,0,3.872-.032,4.512-.1V-.32c0,.416.16.512.48.512a16.543,16.543,0,0,0,2.432-.256c-.032-.64-.1-1.7-.1-3.936V-14.336c0-2.656.032-4.544.1-5.76a17.052,17.052,0,0,0-2.272.128c-.48.032-.64.16-.64.8v7.808Zm30.464-9.12c-6.368,0-10.24,4.64-10.24,10.72C-75.616-5.28-72.8.48-65.376.48-58.592.48-55.2-4.64-55.2-10.176-55.2-15.9-59.168-20.48-65.376-20.48Zm-.224,1.824c4.384,0,7.36,3.712,7.36,8.64,0,5.728-2.88,8.672-6.912,8.672-3.744,0-7.392-3.072-7.392-8.7C-72.544-15.552-69.568-18.656-65.6-18.656ZM-44.512-.384c0,.48.16.576.48.576A11.808,11.808,0,0,0-41.6-.064c-.032-.64-.1-1.7-.1-3.9v-14.08h5.856A2.383,2.383,0,0,0-34.688-20H-45.472c-3.584,0-4.32-.032-4.768-.16a5.352,5.352,0,0,0-.9,1.408c-.192.512.032.7.512.7h6.112Zm15.584-.352.448.608a35.067,35.067,0,0,0,5.728.32A35.3,35.3,0,0,0-18.88.064a2.746,2.746,0,0,0,1.472-1.92l-.064-.064c-1.248.128-3.3.16-4.736.16a20.067,20.067,0,0,1-3.9-.256v-7.3h5.5c1.056,0,1.7-.256,1.952-1.984h-7.456v-6.752H-21.7a7.428,7.428,0,0,0,2.528-.192A2.741,2.741,0,0,0-18.4-20h-8.128a12.5,12.5,0,0,0-2.5.448c.1,1.216.1,2.528.1,4.032Zm17.536,0,.448.608a37.432,37.432,0,0,0,5.536.32A30.947,30.947,0,0,0-1.7.064a2.4,2.4,0,0,0,1.44-1.92L-.32-1.92c-1.248.128-3.3.16-4.736.16a16.2,16.2,0,0,1-3.52-.288v-16.32c0-1.536-.1-1.728-.48-1.728a16.713,16.713,0,0,0-2.432.256c.064.64.1,1.952.1,4.1Z" transform="translate(302 59)" fill="#12686e"/>
+            </g>
+            </svg>
+        </div>
+        <!-- /nav-left-side -->
+
+        <!-- nav-right-side -->
+        <div class="w-full h-full block flex-grow flex-wrap-reverse sm:flex sm:items-center p-6 sm:w-auto border-r-2 border-[#E9E9E9]">
+            <div class=" ml-auto ">
+                <a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-[#12686E] hover:text-black mr-4">
+                    offers
+                </a>
+                <a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-[#12686E] hover:text-black mr-4">
+                    rooms
+                </a>
+                <a href="#responsive-header" class="block mt-4 sm:inline-block sm:mt-0 text-[#12686E] hover:text-black">
+                    gallery
+                </a>
+            </div>
+        </div>
+        
+        <div class="h-full sm:flex items-center justify-center align-middle flex-nowrap">
+            <a href="#responsive-header" class="w-auto align-middle sm:inline-block sm:mt-0 text-teal-200 hover:text-white p-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="29.158" height="29.106" viewBox="0 0 29.158 29.106">
+                    <g id="gift_voucher" data-name="gift voucher" transform="translate(-40 -752)">
+                      <path id="Path_10342" data-name="Path 10342" d="M26.305,6.1H25.172A3.77,3.77,0,0,0,23.427.781a3.728,3.728,0,0,0-4.063.654L16.972,3.6a2.849,2.849,0,0,0-4.788,0l-2.4-2.171a3.774,3.774,0,0,0-6.308,2.8,3.75,3.75,0,0,0,.5,1.872H2.852A2.856,2.856,0,0,0,0,8.955v3.8a.951.951,0,0,0,.951.951H1.9V26.7a2.856,2.856,0,0,0,2.852,2.852H24.4A2.856,2.856,0,0,0,27.256,26.7V13.709h.951a.951.951,0,0,0,.951-.951v-3.8A2.856,2.856,0,0,0,26.305,6.1ZM11.726,27.654H4.754A.952.952,0,0,1,3.8,26.7V13.709h7.923Zm0-15.847H1.9V8.955A.952.952,0,0,1,2.852,8h8.874ZM7.254,6.1A1.874,1.874,0,0,1,5.381,4.231,1.827,1.827,0,0,1,6.495,2.519a1.908,1.908,0,0,1,.775-.168,1.837,1.837,0,0,1,1.241.493l3.6,3.259H7.254Zm7.325-1.9a.952.952,0,0,1,.924.732l-.927.841-.922-.836A.952.952,0,0,1,14.579,4.2Zm.951,23.453h-1.9V13.709h1.9Zm0-15.847h-1.9V8h1.9ZM20.64,2.844A1.872,1.872,0,0,1,23.77,4.231,1.874,1.874,0,0,1,21.9,6.1H17.044ZM25.354,26.7a.952.952,0,0,1-.951.951H17.431V13.709h7.923Zm1.9-14.9H17.431V8h8.874a.952.952,0,0,1,.951.951Z" transform="translate(40 751.551)" fill="#12686e"/>
+                    </g>
+                </svg>  
+            </a>
+            <a href="#responsive-header" class="w-36  h-full flex items-center justify-center align-middle sm:inline-block  sm:mt-0 bg-[#12686E]  ">
+                <span class="h-full flex items-center justify-center text-white hover:text-black">book now</span>
+            </a>
+            <a href="#responsive-header" class="w-auto p-6 flex items-center justify-center align-middle sm:inline-block sm:mt-0 text-teal-200 hover:text-white " @click.prevent="isOpen = !isOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="25" viewBox="0 0 33 25">
+                    <g id="burger_menu" data-name="burger menu" transform="translate(-19.576 -23)">
+                        <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(19.576 23)" fill="#5b5b5b" stroke="#5b5b5b" stroke-width="1">
+                            <rect width="33" height="2" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="32" height="1" fill="none"/>
+                        </g>
+                        <g id="Rectangle_2-2" data-name="Rectangle 2" transform="translate(19.576 46)" fill="#5b5b5b" stroke="#5b5b5b" stroke-width="1">
+                            <rect width="33" height="2" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="32" height="1" fill="none"/>
+                        </g>
+                        <g id="Rectangle_1157" data-name="Rectangle 1157" transform="translate(19.576 35)" fill="#5b5b5b" stroke="#5b5b5b" stroke-width="1">
+                            <rect width="33" height="2" stroke="none"/>
+                            <rect x="0.5" y="0.5" width="32" height="1" fill="none"/>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <!-- /nav-right-side -->
+    </nav> 
+
+    <!-- carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+        <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center  p-0 mb-4 rounded-full">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active carousel-indicators w-4 h-4 border-2 rounded bg-white"
+            aria-current="true"
+            aria-label="Slide 1"
+            id="red"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+            id="red"
+
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+            id="red"
+          ></button>
+        </div>
+        <div class="carousel-inner relative w-full overflow-hidden">
+          <div class="carousel-item active relative float-left w-full">
+            <img
+              src="./assets/img/edvin-johansson-rlwE8f8anOc-unsplash.png"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+              <h2 class="text-[46px] tracking-wider uppercase font-medium">welcome to aro hotel</h2>
+              <p class="text-[46px] tracking-wider font-light">Relax & Unwind</p>
+            </div>
+          </div>
+          <div class="carousel-item relative float-left w-full">
+            <img
+              src="./assets/img/big-tiny-belly-XtnNrQYC7ts-unsplash.png"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+                <h2 class="text-[46px] tracking-wider uppercase font-medium">welcome to aro hotel</h2>
+                <p class="text-[46px] tracking-wider font-light">Relax & Unwind</p>
+            </div>
+          </div>
+          <div class="carousel-item relative float-left w-full">
+            <img
+              src="./assets/img/paolo-nicolello-2gOxKj594nM-unsplash.png"
+              class="block w-full"
+              alt="..."
+            />
+            <div class="carousel-caption hidden md:block absolute text-center">
+                <h2 class="text-[46px] tracking-wider uppercase font-medium">welcome to aro hotel</h2>
+                <p class="text-[46px] tracking-wider font-light italic">Relax & Unwind</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- carousel -->
+
+
+    <!-- room scroll slider -->
+    <div class="flex flex-col bg-white m-auto  py-24">
+        <div class="flex flex-col justify-center items-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5">
+            <h3 class="text-[#5B5B5B] text-2xl uppercase tracking-widest">
+                our rooms
+            </h3>
+            <p class="text-[#5B5B5B]">Love our central location</p>
+        </div>
+        <div class="flex overflow-x-hidden pb-10 hide-scroll-bar">
+            <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10">
+                <div class="inline-block px-3">
+                    <div
+                        class="w-[375px] h-[580px] max-w-xs overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[url('./assets/img/point3d-commercial-imaging-ltd-_Swg04CP0bU-unsplash.png')]
+                        px-5 flex flex-col justify-end"
+                    >
+                        <h3 class="uppercase text-[34px] text-white">room 1</h3>
+                        <p class="text-[16px] italic font-light text-white">Lorem ipsum</p>
+                        <p class="text-[12px]  font-light text-white">Lorem ipsum Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+                        <div class="my-4">
+                            <span class="text-[16px] align-middle text-white">From</span>
+                            <span class="text-[26px] font-medium uppercase align-middle text-white mx-3">€ 123</span>
+                            <span class="align-middle">            
+                                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                            </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block px-3">
+                    <div
+                        class="w-[375px] h-[580px] max-w-xs overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[url('./assets/img/AdobeStock_115722451.png')]
+                        px-5 flex flex-col justify-end" 
+                    >
+                        <h3 class="uppercase text-[34px] text-white">room 2</h3>
+                        <p class="text-[16px] italic font-light text-white">Lorem ipsum</p>
+                        <p class="text-[12px]  font-light text-white">Lorem ipsum Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+                        <div class="my-4">
+                            <span class="text-[16px] align-middle text-white">From</span>
+                            <span class="text-[26px] font-medium uppercase align-middle text-white mx-3">€ 123</span>
+                            <span class="align-middle">            
+                                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                            </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block px-3">
+                    <div
+                        class="w-[375px] h-[580px] max-w-xs overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[url('./assets/img/point3d-commercial-imaging-ltd-oxeCZrodz78-unsplash.png')]
+                        px-5 flex flex-col justify-end" 
+                    >
+                        <h3 class="uppercase text-[34px] text-white">room 3</h3>
+                        <p class="text-[16px] italic font-light text-white">Lorem ipsum</p>
+                        <p class="text-[12px]  font-light text-white">Lorem ipsum Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+                        <div class="my-4">
+                            <span class="text-[16px] align-middle text-white">From</span>
+                            <span class="text-[26px] font-medium uppercase align-middle text-white mx-3">€ 123</span>
+                            <span class="align-middle">            
+                                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                            </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block px-3">
+                    <div
+                        class="w-[375px] h-[580px] max-w-xs overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[url('./assets/img/vojtech-bruzek-Yrxr3bsPdS0-unsplash.png')]
+                        px-5 flex flex-col justify-end" 
+                    >
+                        <h3 class="uppercase text-[34px] text-white">room 4</h3>
+                        <p class="text-[16px] italic font-light text-white">Lorem ipsum</p>
+                        <p class="text-[12px]  font-light text-white">Lorem ipsum Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+                        <div class="my-4">
+                            <span class="text-[16px] align-middle text-white">From</span>
+                            <span class="text-[26px] font-medium uppercase align-middle text-white mx-3">€ 123</span>
+                            <span class="align-middle">            
+                                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                            </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block px-3">
+                    <div
+                        class="w-[375px] h-[580px] max-w-xs overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-[url('./assets/img/point3d-commercial-imaging-ltd-5BV56SdvLmo-unsplash.png')]
+                        px-5 flex flex-col justify-end" 
+                    >
+                        <h3 class="uppercase text-[34px] text-white">room 5</h3>
+                        <p class="text-[16px] italic font-light text-white">Lorem ipsum</p>
+                        <p class="text-[12px]  font-light text-white">Lorem ipsum Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+                        <div class="my-4">
+                            <span class="text-[16px] align-middle text-white">From</span>
+                            <span class="text-[26px] font-medium uppercase align-middle text-white mx-3">€ 123</span>
+                            <span class="align-middle">            
+                                <a href="#responsive-header" class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                                <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest text-white">book now</span>
+                            </a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-36">
+            <button type="button" class="text-white border border-gray-200 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2">
+                <span class="w-4 h-4 inline-flex items-center justify-center text-gray-200"><</span>
+            </button>
+            <button type="button" class="text-white border border-gray-600 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2">
+                <span class="w-4 h-4 inline-flex items-center justify-center text-gray-600">></span>
+            </button>
+                <span class="h-full text-[#12686E] uppercase tracking-widest text-center float-right mt-2">view all</span>
+        </div>
+    </div>
+    <!-- /room scroll slider -->
+
+
+    <!-- offers -->
+    <div class="flex justify-center flex-wrap bg-[#E9E9E9] p-16">
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 1</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/alex-bertha-Jyg7xHRmXiU-unsplash.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                            <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                        </a></span>
+                        <span class="align-middle">            
+                            <a class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]">
+                            <span class="h-full flex items-center justify-center
+                            text-white hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 2</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/AdobeStock_237197532.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                                <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                            </a></span>
+                        <span class="align-middle">            
+                            <a class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]">
+                            <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 3</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/AdobeStock_172719518.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                                <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                            </a></span>
+                        <span class="align-middle">            
+                            <a class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E] ">
+                            <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 4</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/pexels-cottonbro-4253320.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                                <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                            </a></span>
+                        <span class="align-middle">            
+                            <a class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                            <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 5</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/AdobeStock_220390091.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                                <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                            </a></span>
+                        <span class="align-middle">            
+                            <a class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E]  ">
+                            <span class="h-full flex items-center justify-center text-white hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col m-4">
+            <h3 class="p-4 text-[#5B5B5B] text-2xl uppercase tracking-widest">offer 6</h3>
+            <div class="w-[530px] h-[580px] bg-white border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-900">
+                
+                <img  src="./assets/img/AdobeStock_318785146.png" alt="" />
+                
+                <div class=" p-5">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+                    <div class="my-4">
+                        <span class="text-[16px] align-middle ">From</span>
+                        <span class="text-[26px] font-medium uppercase align-middle  mx-3">€ 123</span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 border-2 border-[#12686E] bg-white ">
+                                <span class="h-full flex items-center justify-center text-[#12686E]  hover:text-black uppercase tracking-widest ">read more</span>
+                            </a></span>
+                        <span class="align-middle">            
+                            <a  class="w-[140px] h-[54px] flex items-center justify-center align-middle sm:inline-block sm:mt-0 bg-[#12686E] ">
+                            <span class="h-full flex items-center justify-center text-white  hover:text-black uppercase tracking-widest ">book now</span>
+                        </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /offers -->
+
+    <!-- description -->
+    <div class="flex justify-center content-center py-2">
+        <img class="w-[540px] h-[730px] m-4" src="./assets/img/christian-lambert-vmIWr0NnpCQ-unsplash.png" alt="">
+        <div class="w-[400px] item-body mx-8 px-2 flex flex-col justify-center content-around leading-8 ">
+            <div class="h-20">
+                <h3 class="text-[#5B5B5B] text-2xl uppercase tracking-widest">title</h3>
+                <h5 class="text-[#5B5B5B] tracking-widest">Lorem ipsum dolor sit amet</h5>
+            </div>
+            <p >
+                CLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            </p>
+
+        </div>
+
+        <div class="w-[400px] item-body mx-8 mt-20 px-2 flex flex-col justify-center content-center leading-8 ">
+            CLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            </div>
+    </div>
+    <!-- description -->
+
+    <footer class="h-[230px] w-full text-center text-white bg-[#12686E]">
+        <div class="h-[90px] w-full border-b-2 border-gray-200">
+            <div class="h-full w-full flex justify-center items-center">
+            <a href="#!" class="mr-9 text-white uppercase tracking-widest">
+                home
+            </a>
+            <a href="#!" class="mr-9 text-white uppercase tracking-widest">
+                offers
+            </a>
+            <a href="#!" class="mr-9 text-white uppercase tracking-widest">
+                rooms
+            </a>
+            <a href="#!" class="mr-9 text-white uppercase tracking-widest">
+                gallery
+            </a>
+            <a href="#!" class="mr-9 text-white uppercase tracking-widest">
+                location
+            </a>
+            <a href="#!" class="text-white uppercase tracking-widest">
+                sitemap
+            </a>
+            </div>
+        </div>
+        
+        <div class="text-center text-white uppercase tracking-widest p-4 h-[140px] m-auto flex flex-col items-center justify-center">
+            <p>
+                ARÓ HOTEL STREET ADDRESS TOWN / CITY ABC 123 IRELAND
+            </p>
+            <div class="inline-flex">
+                <span class="mx-4">EMAIL@HOTEL.COM</span> 
+                <span class="mx-4">PHONE: (01) 2345 6789</span> 
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- <script src="main.js"></script> -->
+</html>
